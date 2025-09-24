@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MiniStore — Demo E-Commerce</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="topbar container">
+      <div class="logo" id="brandLogo">MiniStore</div>
+
+      <form id="searchForm" class="searchbar" role="search" aria-label="Site search">
+        <input id="searchInput" type="search" placeholder="Search for products, brands and more..." aria-label="Search products">
+        <select id="sortSelect" aria-label="Sort products">
+          <option value="relevance">Sort: Relevance</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="name-asc">Name A–Z</option>
+        </select>
+        <button type="submit" class="btn">Search</button>
+      </form>
+
+      <div class="header-actions">
+        <button id="signinBtn" class="btn ghost">Sign in</button>
+        <button id="cartBtn" class="btn">Cart (<span id="cartCount">0</span>)</button>
+      </div>
+    </div>
+
+    <nav class="categorybar container" aria-label="Categories">
+      <button class="cat-btn active" data-cat="all">All</button>
+      <button class="cat-btn" data-cat="electronics">Electronics</button>
+      <button class="cat-btn" data-cat="clothing">Clothing</button>
+      <button class="cat-btn" data-cat="home">Home</button>
+      <button class="cat-btn" data-cat="accessories">Accessories</button>
+      <button class="cat-btn" data-cat="books">Books</button>
+    </nav>
+  </header>
+
+  <main id="app" class="container">
+    <!-- SPA content gets injected here -->
+    <section id="hero" class="hero">
+      <div class="hero-left">
+        <h1>MiniStore — Everything you need</h1>
+        <p>Browse curated products, add to cart, and place a demo order. No backend required.</p>
+        <div class="hero-actions">
+          <button id="shopNow" class="btn large">Shop Now</button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img src="assets/hero-placeholder.png" alt="Shopping illustration">
+      </div>
+    </section>
+
+    <section id="featured" class="section">
+      <h2>Featured products</h2>
+      <div id="featuredGrid" class="grid"></div>
+    </section>
+
+    <section id="listings" class="section hidden">
+      <h2 id="listTitle"></h2>
+      <div id="productGrid" class="grid"></div>
+      <div id="pagination" class="pagination"></div>
+    </section>
+
+    <section id="productDetail" class="section hidden">
+      <button id="backToList" class="btn ghost small">← Back</button>
+      <div id="detailCard" class="detail-card"></div>
+    </section>
+
+    <section id="cartPage" class="section hidden">
+      <h2>Your Cart</h2>
+      <div id="cartContent"></div>
+    </section>
+
+    <section id="checkoutPage" class="section hidden">
+      <h2>Checkout</h2>
+      <div id="checkoutContent"></div>
+    </section>
+
+    <section id="ordersPage" class="section hidden">
+      <h2>Orders</h2>
+      <div id="ordersContent"></div>
+    </section>
+  </main>
+
+  <!-- Modal used for product quick view & sign-in -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="document">
+      <button class="modal-close" data-close aria-label="Close">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© MiniStore Demo — Frontend only</small>
+      <div class="footer-links">
+        <a href="#" id="viewOrders">My Orders</a>
+        <a href="#" id="exportCsv">Export products (CSV)</a>
+        <a href="#" id="printList">Print products</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
+
